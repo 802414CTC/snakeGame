@@ -18,8 +18,16 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition  Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/> 
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <TextBlock x:Name="HighScoreText"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="High Score 0"
+                           FontSize="22"
+                           Margin="10"
+                           Grid.Row="2"/>
 
             <TextBlock x:Name="ScoreText"
                HorizontalAlignment="Center"

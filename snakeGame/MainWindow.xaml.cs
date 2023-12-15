@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,12 +43,26 @@ namespace snakeGame
         private readonly Image[,] gridImages;
         private GameState gameState;
         private bool gameRunning;
+        private int highScore = 0;
 
         public MainWindow()
         {
             InitializeComponent();
             gridImages = SetupGrid();
             gameState = new GameState(rows, cols);
+            string fileName = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "hightscore.txt");
+            if (File.Exists(fileName))
+            {
+                StreamReader sr = new StreamReader(fileName);
+                highScore = int.Parse(sr.ReadLine());
+                sr.Close();
+            }
+            else
+            {
+                StreamWriter sw = new StreamWriter(fileName);
+                sw.WriteLine(highScore);
+                sw.Close();
+            }
         }
 
         private async Task RunGame()
@@ -187,6 +202,14 @@ namespace snakeGame
 
         private async Task ShowGameOver()
         {
+            if (gameState.Score > highScore)
+            {
+              highScore = gameState.Score;
+                StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\HightScore.txt");
+                sw.WriteLine(highScore);
+                sw.Close();
+            }
+            HighScoreText.Text = $"HIGH SCORE: {highScore}";
             await DrawDeadSnake();
             await Task.Delay(1000);
             Overlay.Visibility = Visibility.Visible;
