@@ -11,22 +11,34 @@
     <None Remove="Assets\Body.png" />
     <None Remove="Assets\DeadBody.png" />
     <None Remove="Assets\DeadHead.png" />
-    <None Remove="Assets\DroidSansMono.ttf" />
     <None Remove="Assets\Empty.png" />
     <None Remove="Assets\Food.png" />
     <None Remove="Assets\Head.png" />
+    <None Remove="Assets\hit-swing-sword-small-2-95566.mp3" />
     <None Remove="Assets\icon.ico" />
+    <None Remove="Assets\mixkit-arcade-retro-game-over-213.wav" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\Body.png" />
     <Resource Include="Assets\DeadBody.png" />
     <Resource Include="Assets\DeadHead.png" />
-    <Resource Include="Assets\DroidSansMono.ttf" />
+    <Content Include="Assets\hit-swing-sword-small-2-95566.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\mixkit-arcade-retro-game-over-213.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\Empty.png" />
     <Resource Include="Assets\Food.png" />
     <Resource Include="Assets\Head.png" />
     <Resource Include="Assets\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\DroidSansMono.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
