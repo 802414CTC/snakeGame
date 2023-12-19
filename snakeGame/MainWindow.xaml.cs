@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace snakeGame
 {
@@ -44,6 +45,7 @@ namespace snakeGame
         private GameState gameState;
         private bool gameRunning;
         private int highScore = 0;
+        private Random random = new Random();
 
         public MainWindow()
         {
@@ -202,9 +204,9 @@ namespace snakeGame
 
         private async Task ShowGameOver()
         {
-
+            
             Audio.GameOver.Play();
-
+            ShakeWindow(200);
             if (gameState.Score > highScore)
             {
               highScore = gameState.Score;
@@ -217,6 +219,23 @@ namespace snakeGame
             await Task.Delay(1000);
             Overlay.Visibility = Visibility.Visible;
             OverlayText.Text = "PRESS ANY KEY TO START";
+        }
+
+        private async Task ShakeWindow(int durationMs)
+        {
+            var oLeft = this.Left;
+            var oTop = this.Top;
+            var shakeTimer = new DispatcherTimer();
+            shakeTimer.Tick += (sender, args) =>
+                {
+                    this.Left = oLeft + random.Next(-10, 11);
+                    this.Top = oTop + random.Next(-10, 11);
+            };
+            shakeTimer.Interval = TimeSpan.FromMilliseconds(200);
+            shakeTimer.Start();
+
+            await Task.Delay(durationMs);
+            shakeTimer.Stop();
         }
     }
 }

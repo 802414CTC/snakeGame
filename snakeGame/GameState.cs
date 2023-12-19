@@ -161,6 +161,7 @@ namespace snakeGame
             {
                 AddHead(newHeadPos);
                 Audio.EatingFood.Play();
+                //ShakeWindow(200);
                 Score++;
                 AddFood();
             }
