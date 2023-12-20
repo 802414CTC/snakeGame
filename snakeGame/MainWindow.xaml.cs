@@ -27,6 +27,7 @@ namespace snakeGame
             { GridValue.Empty, Images.Empty },
             { GridValue.Snake, Images.Body },
             { GridValue.Food, Images.Food },
+            { GridValue.wall, Images.Wall },
         };
 
         private readonly Dictionary<Direction, int> dirToRotation = new()
@@ -204,9 +205,9 @@ namespace snakeGame
 
         private async Task ShowGameOver()
         {
-            
+            ShakeWindow(2000);
             Audio.GameOver.Play();
-            ShakeWindow(200);
+            
             if (gameState.Score > highScore)
             {
               highScore = gameState.Score;

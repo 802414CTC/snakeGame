@@ -7,6 +7,7 @@ namespace snakeGame
         Empty,
         Snake,
         Food,
+        wall,
         Outside
     }
 }

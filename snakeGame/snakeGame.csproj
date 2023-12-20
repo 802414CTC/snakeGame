@@ -17,6 +17,7 @@
     <None Remove="Assets\hit-swing-sword-small-2-95566.mp3" />
     <None Remove="Assets\icon.ico" />
     <None Remove="Assets\mixkit-arcade-retro-game-over-213.wav" />
+    <None Remove="Assets\wall.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <Resource Include="Assets\Food.png" />
     <Resource Include="Assets\Head.png" />
     <Resource Include="Assets\icon.ico" />
+    <Resource Include="Assets\wall.jpg" />
   </ItemGroup>
 
   <ItemGroup>
